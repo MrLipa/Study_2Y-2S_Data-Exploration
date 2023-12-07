@@ -1,0 +1,8 @@
+docker build -t lipa142000/ed-2023:jupyter-latest .\docker
+docker push lipa142000/ed-2023:jupyter-latest
+docker run -d -p 8888:8888 -v ~/Tomek/ED:/usr/src/app lipa142000/ed-2023:jupyter-lab-latest
+
+
+kubectl delete -f .\kubernetes\deployment.yaml
+
+kubectl apply -f .\kubernetes\deployment.yaml
